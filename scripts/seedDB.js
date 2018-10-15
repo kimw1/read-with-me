@@ -3,10 +3,7 @@ const db = require("../models");
 
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/readwithmeDB"
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB");
 
 const itemSeed = [
   {
@@ -17,7 +14,7 @@ const itemSeed = [
   }
 ]
 
-db.Book
+db.Library
   .remove({})
   .then(() => db.Library.collection.insertMany(itemSeed))
   .then(data => {

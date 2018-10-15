@@ -1,4 +1,4 @@
 module.exports = {
-    Item: require("./library")
+    Library: require("./library")
   };
   
