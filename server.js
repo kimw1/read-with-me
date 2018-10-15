@@ -3,8 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
-//import { Polly } from 'aws-sdk';
+const keys = require("./keys.js");
 
 // Define API routes here
 //const routes = require('./routes/api/something');
@@ -14,7 +13,6 @@ const mongoose = require("mongoose");
 
 require('dotenv').config();
 
-//const polly = new Polly(_polly);
 
 //set port for local and heroku
 const PORT = process.env.PORT || 3001;
