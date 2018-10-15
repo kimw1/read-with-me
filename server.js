@@ -5,8 +5,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const keys = require("./keys.js");
 
-//import { Polly } from 'aws-sdk';
-
 // Define API routes here
 //const routes = require('./routes/api/something');
 
