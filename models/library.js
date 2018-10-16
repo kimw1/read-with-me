@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const librarySchema = new Schema({
-  title: String,
-  author: String,
-  synopsis: String,
+  text: { type: String, required: true }
 });
 
 const Library = mongoose.model("Library", librarySchema);

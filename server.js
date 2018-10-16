@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3001;
 
 //set up express server
 const app = express();
-app.use(routes);
+
 
 //Define middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+app.use(routes);
 //connect to Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB")
 

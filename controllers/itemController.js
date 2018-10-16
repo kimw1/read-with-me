@@ -15,7 +15,7 @@ module.exports = {
     },
     create: function (req, res) {
         db.Library
-            .create(req.body)
+            .create({text: req.body.text})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
