@@ -41,6 +41,8 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
+        {/* <Route exact path="/text" component={Text} />
+        <Route exact path="/image" component={Image} />
         {/* <PrivateRoute userAuthed={true} exact={true} path="/" RouteComponent={Home} /> */}
         <Route path="/login" exact={true} component={LoginPage} />
         <Route path="/library" exact={true} component={Library} />

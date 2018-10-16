@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const keys = require("./keys.js");
 
 // Define API routes here
-//const routes = require('./routes/api/something');
+const routes = require('./routes');
 
 
 //import { polly as _polly } from "./keys";
@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3001;
 
 //set up express server
 const app = express();
-//app.use(routes);
+app.use(routes);
 
 //Define middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,8 +31,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //connect to Mongo DB
-//connect(process.env.MONGODB_URI || "mongodb://localhost/reactourdb")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB")
 
 app.listen(PORT, () => {
-    console.log(`ðŸŒŽ ==> Server now on port ${PORT}!`);
+    console.log(`🌎 ==> Server now on port ${PORT}!`);
 })
