@@ -123,9 +123,9 @@ atob@^2.1.1:
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
 aws-sdk@^2.334.0:
-  version "2.334.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.334.0.tgz#cf70be2f28f5350a882618a665c9703ad8a5e8c2"
-  integrity sha512-JiqtB2t/PklHCfo86HA6g6a8CXu5SDNa8XiaQ0rYyVBlzDR41p/s/yNlva3D1/QGiBTojl2fd9ZxBUxKa2Q9cg==
+  version "2.336.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.336.0.tgz#b15371aff3e30ba77b74968c086375594be897c9"
+  integrity sha512-+GVSU3lZ8vhP4H/eGAA2XMolugvJjc4k50QFHMVAAIeEDmG3CU0LW5b5btsuMsE1cjFWu64yDdQUn/fwoV/KYQ==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -1450,9 +1450,9 @@ mongoose-legacy-pluralize@1.0.2:
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
 mongoose@^5.3.3:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.3.3.tgz#5abc7abe47f8a81b06b3a296232cc411eb5b9917"
-  integrity sha512-GmfhOQ9OfZRVvf8Geq+XnIDjM6RtbJ2mNc5Ztf3lYSjlpwrVPXWBqIOCviGQVTSddwVEO0E88KTf3y+3fEU/aQ==
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.3.4.tgz#acd02fae9c1bcd723d3df7d96109f57c38f74919"
+  integrity sha512-DIUWOyYgZv2zGi/BoFEaFiaCVuDonnzGhW3cnc3JFjBScYn6z24tS2j3VB0dtMoX8FFjxmmMVnlmHPEIbV4PKA==
   dependencies:
     async "2.6.1"
     bson "~1.0.5"
@@ -2517,9 +2517,9 @@ wide-align@^1.1.0:
     string-width "^1.0.2 || 2"
 
 widest-line@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-2.0.0.tgz#0142a4e8a243f8882c0233aa0e0281aa76152273"
-  integrity sha1-AUKk6KJD+IgsAjOqDgKBqnYVInM=
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-2.0.1.tgz#7438764730ec7ef4381ce4df82fb98a53142a3fc"
+  integrity sha512-Ba5m9/Fa4Xt9eb2ELXt77JxVDV8w7qQrH0zS/TWSJdLyAwQjWoOzpzj5lwVftDz6n/EOu3tNACS84v509qwnJA==
   dependencies:
     string-width "^2.1.1"
 
