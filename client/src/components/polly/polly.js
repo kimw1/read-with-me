@@ -4,7 +4,7 @@ AWS.config.update({region: 'us-west-2'});
 const fs = require('fs');
 require('dotenv').config();
 
-let keys = require("../../../keys.js");
+let keys = require("../../keys.js");
 
 const polly = new AWS.Polly(keys.aws);
 
