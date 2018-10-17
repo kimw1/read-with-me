@@ -1,5 +1,5 @@
 import React from "react";
-import "./Polly";
+import "./polly";
 
 const PollyAudio = props => (
 <div fluid {...props}>
