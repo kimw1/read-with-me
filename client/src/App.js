@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage";
 import Library from "./pages/Library";
+import Picture from "./pages/Picture";
+import Text from "./pages/Text";
+
 
 // import PrivateRoute from "./utils/PrivateRoute";
 // import './App.css';
@@ -46,7 +49,8 @@ const App = () => (
         {/* <PrivateRoute userAuthed={true} exact={true} path="/" RouteComponent={Home} /> */}
         <Route path="/login" exact={true} component={LoginPage} />
         <Route path="/library" exact={true} component={Library} />
-
+        <Route path="/text" exact={true} component={Text} />
+        <Route path="/picture" exact={true} component={Picture} />
         {/* <SecureRoute path="/library" exact={true} component={Library} />
           <Route
             path="/login"
