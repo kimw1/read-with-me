@@ -12,6 +12,17 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Database configuration with mongoose
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
+// test mlab connection
+mongoose.connect("mongodb://");
+
 // Define API routes here
 
 // Send every other request to the React app

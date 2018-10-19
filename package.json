@@ -1,6 +1,9 @@
 {
   "name": "read-with-me",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.11.4"
+  },
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
