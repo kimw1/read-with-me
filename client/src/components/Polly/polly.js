@@ -7,19 +7,20 @@ require('dotenv').config();
 let keys = require("../../keys.js");
 
 const polly = new AWS.Polly(keys.aws);
+//console.log(AWS.config.credentials.constructor);
 
 const params = {
     OutputFormat: "mp3",
     Text: "This project is awesome!!",
     TextType: "text",
-    VoiceId: "Joanna"
+    VoiceId: "Ivy"
 };
 
 let cb = (err, data) => {
     if (err) {
         console.log(err, err.stack);
     } else {
-        fs.writeFile("quote4.mp3", data.AudioStream, (err) => {})
+        fs.writeFile("quote5.mp3", data.AudioStream, (err) => {})
         if (err) {
             console.log('Error saving file', err);
         }
