@@ -3,6 +3,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
+//const mongoose = require("mongoose");
+
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,15 +15,15 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Database configuration with mongoose
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
+//const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+//mongoose.Promise = Promise;
+//mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // test mlab connection
-mongoose.connect("mongodb://");
+//mongoose.connect("mongodb://");
 
 // Define API routes here
 
