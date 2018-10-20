@@ -28,5 +28,6 @@
     "fs": "^0.0.1-security",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.3"
-  }
+  },
+  "repository": "https://github.com/kimmie10/read-with-me.git"
 }
