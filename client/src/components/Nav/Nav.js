@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../../utils/images/logo.png';
 
-const styles = {
+const imgStyle = {
   height: "25%",
   width: "25%"
 };
@@ -14,7 +14,7 @@ export default class Nav extends Component {
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
           <div className="container">
             <Link className="navbar-brand" to="/">
-              <img src={logo} alt="logo" style={styles}/>
+              <img src={logo} alt="logo" style={imgStyle}/>
             </Link>
             <button
               className="navbar-toggler"
