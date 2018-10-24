@@ -1,5 +1,6 @@
 import API from "../../utils/API";
 import React, { Component } from "react";
+//import PollyContainer from "../../utils/polly";
 
 
 
@@ -42,6 +43,7 @@ class InputField extends Component {
 
   render() {
     return (
+      <div>
       <form>
         <label>
           Input Text:
@@ -49,6 +51,10 @@ class InputField extends Component {
         </label>
         <input type="submit" disabled={this.state.text === ''} onClick={this.handleSubmission} value="Submit" className="btn btn-info" />
       </form>
+      {/* <div>
+        <PollyContainer />
+      </div> */}
+      </div>
     );
   }
 }

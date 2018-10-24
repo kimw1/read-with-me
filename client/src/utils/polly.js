@@ -13,15 +13,14 @@ class PollyContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
-            // OutputFormat: "mp3",
-            // Text: "",
-            // TextType: "text",
-            // VoicesId: "",
-            // LanguageCode: "",
-            // IncludeAdditionalLanguageCodes: true,
-            // msg: "Please choose a language.",
-            // value: "select"
+            Params: {
+                OutputFormat: "mp3",
+                Text: "",
+                TextType: "text",
+                VoicesId: "",
+                LanguageCode: "",
+                IncludeAdditionalLanguageCodes: true
+            }
         }
         
     }
@@ -32,23 +31,13 @@ class PollyContainer extends React.Component {
     }
 
     handleChange(event) {
-
-        if (this.state.value === "english")
             this.setState({
                 VoicesId: "Joanna",
-                LanguageCode: "en-US",
+                LanguageCode: event.target.value,
                 value: "en-US"
-            }); else if (this.state.value === "french")
-            this.setState({
-                VoicesId: "Celine",
-                LanguageCode: "fr-FR",
-                value: "fr-FR"
-            }); else {
-            return (
-                this.state.msg
-            )
+    
+            }); 
         }
-    }
 
     handleVoices = (props) => {
 
@@ -64,15 +53,16 @@ class PollyContainer extends React.Component {
 
     handleTextToVoice = (props) => {
 
-        AWS.polly.SynthesizeSpeech(this.state, (error, data) => {
+        AWS.polly.getSynthesizeSpeechUrl(this.state.Params, (error, data) => {
             if (error) {
                 console.log(error.code)
             }
-            this.setState({ 
-                OutputFormat: "mp3",
-                text: "Very unhappy with AWS Polly.",
-                TextType: "text",
-             });
+            // this.setState({ 
+            //     OutputFormat: "mp3",
+            //     text: "Very unhappy with AWS Polly.",
+            //     TextType: "text",
+            //  });
+            console.log(data);
         });
     };
 
@@ -84,7 +74,7 @@ class PollyContainer extends React.Component {
                     <p>Your browser doesn't support HTML5 audio. Here is a <a href="quote4.mp3">link to the audio</a> instead.</p>
                 </audio>
                 <div>Please choose a language.</div>
-                <select>
+                <select onChange={this.handleChange}>
                     <option className="english" value="en-US">US English</option>
                     <option className="french" value="fr-FR">French</option>
                 </select>

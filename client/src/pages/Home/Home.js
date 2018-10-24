@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
-import PollyAudio from "../../components/Polly";
 import ReadTextCard from "../../components/ReadTextCard";
 import ReadPhotoCard from "../../components/ReadPhotoCard";
 import Footer from "../../components/Footer";
@@ -25,8 +24,6 @@ class Home extends Component {
         </p>
         <ReadTextCard/>
         <ReadPhotoCard/>
-        <PollyAudio/>
-
         <Footer/>
       </div>
     );
