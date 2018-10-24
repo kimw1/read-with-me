@@ -1,5 +1,4 @@
-
-
+import API from "../../utils/API";
 import React, { Component } from "react";
 
 
@@ -12,30 +11,43 @@ class InputField extends Component {
       text: ""
     };
     this.handleOnChange = this.handleOnChange.bind(this);
-    this.handleSubmission = this.handleSubmission.bind(this);    
+    this.handleSubmission = this.handleSubmission.bind(this);
   }
-  handleOnChange(event){
-    const {value: text} = event.target;
+  loadLibrary = () => {
+    API.getLibrary()
+      .then(res => this.setState({ text: res.data }))
+      .catch(err => console.log(err))
+  }
 
-    this.setState({ text });
-}
-handleSubmission(event) {
+  handleOnChange = event => {
+    const { name, value } = event.target;
+    this.setState({ 
+      [name]: value 
+    });
+  };
+
+  handleSubmission(event) {
     event.preventDefault();
-    const {text} = this.state;
-       if(text !== '') {
-        //This is the next step in process
-        console.log('Here si what we would submit to our bacend', text);
+    if (this.state.text !== '') {
+      API.saveItem({
+        text: this.state.text
+      })
+        .then(console.log("saved " + this.state.text))
+        .then(this.setState({
+          text: ''
+        }))
+        .catch(err => console.log(err))
     }
-}
+  };
+
   render() {
-      console.log(this.state.text);
     return (
       <form>
         <label>
           Input Text:
-          <input type="text" value={this.state.text} onChange={this.handleOnChange} class="form-control " />
+          <input name="text" value={this.state.text} onChange={this.handleOnChange} className="form-control " />
         </label>
-        <input type="submit" disabled={this.state.text === ''} onClick={this.handleSubmission} value="Submit" class="btn btn-info" />
+        <input type="submit" disabled={this.state.text === ''} onClick={this.handleSubmission} value="Submit" className="btn btn-info" />
       </form>
     );
   }
