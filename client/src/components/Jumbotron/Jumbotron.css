@@ -1,5 +1,13 @@
 .jumbotron {
-    min-height: 300px;
-    padding-top: 100px;
-  }
-  
+  color: white;
+  height: 450px;
+  padding-top: 100px;
+  background-position: 50% 86%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+p {
+  font-size: 20px;
+}
