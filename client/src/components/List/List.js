@@ -1,22 +1,22 @@
 import React from "react";
 
 const List = () => (
-  <div class="list-group">
+  <div className="list-group">
     <a
       href="#"
-      class="list-group-item list-group-item-action list-group-item-info"
+      className="list-group-item list-group-item-action list-group-item-info"
     >
       Your files save here.
     </a>
     <a
       href="#"
-      class="list-group-item list-group-item-action list-group-item-info"
+      className="list-group-item list-group-item-action list-group-item-info"
     >
       Your files save here.
     </a>    
     <a
       href="#"
-      class="list-group-item list-group-item-action list-group-item-info"
+      className="list-group-item list-group-item-action list-group-item-info"
     >
       Your files save here.
     </a>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const DisplayButton = () => (
-<button type="button" class="btn btn-outline-info">Display</button>
+<button type="button" className="btn btn-outline-info">Display</button>
 
 );
 

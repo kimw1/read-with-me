@@ -7,12 +7,13 @@ require('dotenv').config();
 let keys = require("../../keys.js");
 
 const polly = new AWS.Polly(keys.aws);
+//console.log(AWS.config.credentials.constructor);
 
 const params = {
     OutputFormat: "mp3",
     Text: "This project is awesome!!",
     TextType: "text",
-    VoiceId: "Joanna"
+    VoiceId: "Ivy"
 };
 
 let cb = (err, data) => {
