@@ -13,11 +13,6 @@ class InputField extends Component {
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleSubmission = this.handleSubmission.bind(this);
   }
-  loadLibrary = () => {
-    API.getLibrary()
-      .then(res => this.setState({ text: res.data }))
-      .catch(err => console.log(err))
-  }
 
   handleOnChange = event => {
     const { name, value } = event.target;

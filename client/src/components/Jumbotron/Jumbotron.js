@@ -4,7 +4,7 @@ import "./Jumbotron.css";
 const Jumbotron = (props) => {
 
   const jumbotronStyle = {
-    "background-image": `url(${props.src})`
+    "backgroundImage": `url(${props.src})`
   }
 
   return (
