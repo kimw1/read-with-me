@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage";
-import Library from "./pages/Library";
 import Picture from "./pages/Picture";
 import Text from "./pages/Text";
 

@@ -4,14 +4,10 @@ import Nav from "../../components/Nav";
 import ReadTextCard from "../../components/ReadTextCard";
 import ReadPhotoCard from "../../components/ReadPhotoCard";
 import Footer from "../../components/Footer";
-<<<<<<< HEAD
 import Carousel from "../../components/Carousel";
 import { LibraryList, LibraryListItem } from "../../components/List"
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-=======
-//import Carousel from "../../components/Carousel";
->>>>>>> master
 
 import signs from "../../utils/images/tokyo1trans.png";
 import DeleteButton from "../../components/DeleteButton";
@@ -56,7 +52,6 @@ class Home extends Component {
         </p>
         <ReadTextCard/>
         <ReadPhotoCard/>
-<<<<<<< HEAD
         {this.state.libraries.length ? (
         <LibraryList>
         {this.state.libraries.map(libraries => (
@@ -71,8 +66,6 @@ class Home extends Component {
         ) : (
           <h3>Nothing in your Library</h3>
         )}
-=======
->>>>>>> master
         <Footer/>
       </div>
     );

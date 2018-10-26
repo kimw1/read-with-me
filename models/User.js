@@ -22,6 +22,9 @@ const UserSchema = new Schema({
         type: Date, 
         default: Date.now
     },
+    item: {
+        ref: Library
+    }
 });
 
 module.exports = User = mongoose.model('users', UserSchema);
