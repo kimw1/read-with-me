@@ -7,9 +7,6 @@ import DisplayButton from "../../components/DisplayButton";
 import Image from "../../components/Image";
 import { Container, Col, Row } from "../../components/Grid";
 
-
-
-
 class Picture extends Component {
 
     render() {

@@ -1,7 +1,7 @@
 import React from "react";
 
 const TranslateButton = () => (
-<button type="button" class="btn btn-info btn-lg">Translate</button>
+<button type="button" className="btn btn-info btn-lg">Translate</button>
 
 );
 
