@@ -4,7 +4,7 @@ import Nav from "../../components/Nav";
 import ReadTextCard from "../../components/ReadTextCard";
 import ReadPhotoCard from "../../components/ReadPhotoCard";
 import Footer from "../../components/Footer";
-import Carousel from "../../components/Carousel";
+//import Carousel from "../../components/Carousel";
 
 import signs from "../../utils/images/tokyo1trans.png";
 
