@@ -44,19 +44,19 @@ class LoginComponent extends Component {
     const { errors } = this.state;
     
     return (
-      <div class="LoginComponent">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 m-auto">
-              <h1 class="display-4 text-center">Log In</h1>
-              <p class="lead text-center">
+      <div className="LoginComponent">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <h1 className="display-4 text-center">Log In</h1>
+              <p className="lead text-center">
                 Sign in to your Read With Me account
               </p>
               <form onSubmit={this.onSubmit}>
-                <div class="form-group">
+                <div className="form-group">
                   <input
                     type="email"
-                    class={classnames("form-control form-control-lg", {
+                    className={classnames("form-control form-control-lg", {
                       "is-invalid": errors
                     })}
                     placeholder="Email Address"
@@ -65,13 +65,13 @@ class LoginComponent extends Component {
                     onChange = {this.onChange}
                   />
                   {errors.email && (
-                    <div class="invalid-feedback">{errors.email}</div>
+                    <div className="invalid-feedback">{errors.email}</div>
                   )}
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <input
                     type="password"
-                    class={classnames("form-control form-control-lg", {
+                    className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.password
                     })}
                     placeholder="Password"
@@ -80,10 +80,10 @@ class LoginComponent extends Component {
                     onChange = {this.onChange}
                   />
                   {errors.password && (
-                    <div class="invalid-feedback">{errors.password}</div>
+                    <div className="invalid-feedback">{errors.password}</div>
                   )}
                 </div>
-                <input type="submit" class="btn btn-info btn-block mt-4" />
+                <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
           </div>
