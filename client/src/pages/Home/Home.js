@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
-import ReadTextCard from "../../components/ReadTextCard";
-import ReadPhotoCard from "../../components/ReadPhotoCard";
 import Footer from "../../components/Footer";
 import Carousel from "../../components/Carousel";
 import { LibraryList, LibraryListItem } from "../../components/List"
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 
-import signs from "../../utils/images/tokyo1trans.png";
 import DeleteButton from "../../components/DeleteButton";
 
 
@@ -62,7 +59,6 @@ class Home extends Component {
               <Card />
             </Col>
           </Row>
-
         </Container>
         {this.state.libraries.length ? (
         <LibraryList>

@@ -17,7 +17,6 @@ class PollyContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-                item: {},
                 OutputFormat: "mp3",
                 Text: "",
                 TextType: "text",
