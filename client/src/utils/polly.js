@@ -92,7 +92,7 @@ class PollyContainer extends React.Component {
                 console.log(error.code, error.stack, error)
             }
             console.log("This is your data " + url);
-            this.setState({url: url});
+            this.setState({url});
             let pollyPlayer = document.getElementById("polly-audio");
             pollyPlayer.load();
         });
