@@ -36,11 +36,11 @@ class PollyContainer extends React.Component {
             .catch(err => console.log(err));
     };
 
-    componentDidMount() {
-        API.getItem(this.props.match.params.id)
-          .then(res => this.setState({ item: res.data }))
-          .catch(err => console.log(err));
-      }
+    // componentDidMount() {
+    //     API.getItem(this.props.match.params.id)
+    //       .then(res => this.setState({ item: res.data }))
+    //       .catch(err => console.log(err));
+    //   }
 
     Polly = () => {
         return new AWS.Polly({ apiVersion: '2016-06-10' })
@@ -61,7 +61,7 @@ class PollyContainer extends React.Component {
             this.setState({
               OutputFormat: "mp3",
                 TextType: "text",
-                Text: this.state.Text || this.state.item.text,
+                Text: this.state.Text,
                 VoiceId: this.state.VoiceId
             }, this.handleTextToVoice )
             console.log(this.state);
@@ -106,7 +106,7 @@ class PollyContainer extends React.Component {
             <div>
                 <form>
                     <label>Please input text you would like spoken.
-                    <textarea name="Text" defaultValue={this.state.Text || this.state.item.text} onChange={this.handleChange} className="form-control" />
+                    <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
                     </label>
                     <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
                 </form>

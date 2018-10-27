@@ -18,7 +18,7 @@ module.exports = {
             .create({text: req.body.text})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-    },
+    },  
     remove: function (req, res) {
         db.Library
             .findById({ _id: req.params.id })

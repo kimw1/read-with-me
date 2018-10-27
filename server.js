@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+const passport = require('passport');
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,20 +15,22 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
 }
 
-// // Database configuration with mongoose
-// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
+// Database configuration with mongoose
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
 
-// // Set mongoose to leverage built in JavaScript ES6 Promises
-// // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect("mongodb://localhost/readwithmeDB", { useNewUrlParser: true });
 
 // Define API routes here
 const routes = require('./routes');
 app.use(routes);
 
+
+
 // Database configuration with mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB", { useNewUrlParser: true })
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB", { useNewUrlParser: true })
 
 // Send every other request to the React app
 // Define any API routes before this runs
@@ -71,7 +74,7 @@ app.listen(PORT, () => {
 // const path = require("path");
 // const bodyParser = require("body-parser");
 // const mongoose = require("mongoose");
-// const passport = require('passport');
+
 
 // const users = require('./routes/api/users');
 // const profile = require('./routes/api/profile');
@@ -109,15 +112,14 @@ app.listen(PORT, () => {
 // // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB")
 
 // // Passport middleware
-// app.use(passport.initialize());
+app.use(passport.initialize());
 
 // // Passport Config
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 
 // app.use('/api/users', users);
-// // app.use('/api/profile', profile);
-// // app.use('/api/inputText', users);
+
 
 // //set port for local and heroku
 // const PORT = process.env.PORT || 3001;

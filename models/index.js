@@ -1,4 +1,5 @@
 module.exports = {
-    Library: require("./library")
+    Library: require("./library"),
+    User: require("./User")
   };
   
