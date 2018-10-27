@@ -4,11 +4,12 @@ import Nav from "../../components/Nav";
 import ReadTextCard from "../../components/ReadTextCard";
 import ReadPhotoCard from "../../components/ReadPhotoCard";
 import Footer from "../../components/Footer";
-//import Carousel from "../../components/Carousel";
+import Carousel from "../../components/Carousel";
+import { Col, Row, Container } from "../../components/Grid";
+import Card from "../../components/Card";
 
 import signs from "../../utils/images/tokyo1trans.png";
-
-
+import placeholder from "../../utils/images/placeholder.png";
 
 class Home extends Component {
   render() {
@@ -17,14 +18,22 @@ class Home extends Component {
         <Nav />
         <Jumbotron title="ELUCIDATE YOUR SURROUNDINGS." src={signs}>More comfortable listening than reading? Our cutting-edge app supports image-to-voice conversion and even translation between languages.
         </ Jumbotron>
-        <h1>Home Page</h1>
-        <p>
-          Select which option you would prefer. Upload a photo to be read. Or
-          you can upload or input text to be read.
-        </p>
-        <ReadTextCard/>
-        <ReadPhotoCard/>
-        <Footer/>
+
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <h1>HOW IT WORKS</h1>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col size="md-12">
+              <Card />
+            </Col>
+          </Row>
+
+        </Container>
+        <Footer />
       </div>
     );
   }

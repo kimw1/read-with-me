@@ -6,9 +6,9 @@ import API from "./API";
 AWS.config.logger = console;
 
 AWS.config = new AWS.Config({
-        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-        region: "us-west-2",
-        secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    region: "us-west-2",
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
 });
 
 
