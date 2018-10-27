@@ -6,10 +6,10 @@ import ReadPhotoCard from "../../components/ReadPhotoCard";
 import Footer from "../../components/Footer";
 import Carousel from "../../components/Carousel";
 import { Col, Row, Container } from "../../components/Grid";
+import Card from "../../components/Card";
 
 import signs from "../../utils/images/tokyo1trans.png";
-
-
+import placeholder from "../../utils/images/placeholder.png";
 
 class Home extends Component {
   render() {
@@ -22,14 +22,18 @@ class Home extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <h1>How it works</h1>
+              <h1>HOW IT WORKS</h1>
             </Col>
           </Row>
-        </Container>
 
-        <ReadTextCard/>
-        <ReadPhotoCard/>
-        <Footer/>
+          <Row>
+            <Col size="md-12">
+              <Card />
+            </Col>
+          </Row>
+
+        </Container>
+        <Footer />
       </div>
     );
   }
