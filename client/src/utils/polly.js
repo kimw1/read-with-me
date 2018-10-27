@@ -1,6 +1,7 @@
 import React from 'react';
 import AWS from 'aws-sdk';
 import API from "./API";
+import SaveButton from "../components/SaveButton"
 
 
 AWS.config.logger = console;
@@ -33,6 +34,12 @@ class PollyContainer extends React.Component {
             }))
             .catch(err => console.log(err));
     };
+
+    // componentDidMount() {
+    //     API.getItem(this.props.match.params.id)
+    //       .then(res => this.setState({ item: res.data }))
+    //       .catch(err => console.log(err));
+    //   }
 
     Polly = () => {
         return new AWS.Polly({ apiVersion: '2016-06-10' })
@@ -85,7 +92,7 @@ class PollyContainer extends React.Component {
                 console.log(error.code, error.stack, error)
             }
             console.log("This is your data " + url);
-            this.setState({url: url});
+            this.setState({url});
             let pollyPlayer = document.getElementById("polly-audio");
             pollyPlayer.load();
         });
@@ -102,6 +109,7 @@ class PollyContainer extends React.Component {
                     </label>
                     <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
                 </form>
+                <SaveButton/>
                 <div>
                     <audio controls id="polly-audio">
                         <source src={this.state.url} type="audio/mp3" />

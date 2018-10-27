@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
-import Library from "./pages/Library";
+
 import Picture from "./pages/Picture";
 import Text from "./pages/Text";
 
@@ -50,8 +50,9 @@ const App = () => (
         {/* <PrivateRoute userAuthed={true} exact={true} path="/" RouteComponent={Home} /> */}
         <Route path="/login" exact={true} component={LoginPage} />
         <Route path="/register" exact={true} component={RegisterPage} />
-        <Route path="/library" exact={true} component={Library} />
+        {/* <Route path="/library" exact={true} component={Library} /> */}
         <Route path="/text" exact={true} component={Text} />
+        <Route path="/text/:id" exact={true} component={Text} />
         <Route path="/picture" exact={true} component={Picture} />
         {/* <SecureRoute path="/library" exact={true} component={Library} />
           <Route
