@@ -13,6 +13,11 @@ import signs from "../../utils/images/tokyo1trans.png";
 import DeleteButton from "../../components/DeleteButton";
 
 
+import { Col, Row, Container } from "../../components/Grid";
+import Card from "../../components/Card";
+
+import signs from "../../utils/images/tokyo1trans.png";
+import placeholder from "../../utils/images/placeholder.png";
 
 class Home extends Component {
   state = {
@@ -45,13 +50,20 @@ class Home extends Component {
         <Nav />
         <Jumbotron title="ELUCIDATE YOUR SURROUNDINGS." src={signs}>More comfortable listening than reading? Our cutting-edge app supports image-to-voice conversion and even translation between languages.
         </ Jumbotron>
-        <h1>Home Page</h1>
-        <p>
-          Select which option you would prefer. Upload a photo to be read. Or
-          you can upload or input text to be read.
-        </p>
-        <ReadTextCard/>
-        <ReadPhotoCard/>
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <h1>HOW IT WORKS</h1>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col size="md-12">
+              <Card />
+            </Col>
+          </Row>
+
+        </Container>
         {this.state.libraries.length ? (
         <LibraryList>
         {this.state.libraries.map(libraries => (
@@ -66,7 +78,7 @@ class Home extends Component {
         ) : (
           <h3>Nothing in your Library</h3>
         )}
-        <Footer/>
+        <Footer />
       </div>
     );
   }
