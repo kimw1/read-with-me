@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import LoginComponent from "../../components/LoginComponent";
 
 
 class LoginPage extends Component {
@@ -7,7 +8,7 @@ class LoginPage extends Component {
         return (
             <div>
          
-                <h1>Login Page</h1>
+                <LoginComponent/>
             </div>
         )
     }

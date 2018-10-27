@@ -35,15 +35,9 @@ class LoginComponent extends Component {
       this.props.userBecameAuthed(); 
       })
     // .catch(err => console.log(err));
-    // .catch(err => this.setState({ errors: err.response.data }));
-    .catch(err => console.log(err));
+    .catch(err => this.setState({ errors: err.response.data }));
     
-    
-    // axios
-    // .post('/api/users/login', user)
-    // .then(res => 
-    //   console.log(res.data))
-    // .catch(err => this.setState({ errors: err.response.data }));
+  
   }
   
   render() {
@@ -70,9 +64,9 @@ class LoginComponent extends Component {
                     value = {this.state.email}
                     onChange = {this.onChange}
                   />
-                  {/* {errors.email && (
+                  {errors.email && (
                     <div class="invalid-feedback">{errors.email}</div>
-                  )} */}
+                  )}
                 </div>
                 <div class="form-group">
                   <input
@@ -85,7 +79,7 @@ class LoginComponent extends Component {
                     value = {this.state.password}
                     onChange = {this.onChange}
                   />
-                  {errors.email && (
+                  {errors.password && (
                     <div class="invalid-feedback">{errors.password}</div>
                   )}
                 </div>
