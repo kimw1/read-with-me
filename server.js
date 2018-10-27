@@ -14,13 +14,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
 }
 
-// Database configuration with mongoose
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
+// // Database configuration with mongoose
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+// // Set mongoose to leverage built in JavaScript ES6 Promises
+// // Connect to the Mongo DB
+// mongoose.Promise = Promise;
+// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Define API routes here
 const routes = require('./routes');

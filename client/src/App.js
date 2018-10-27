@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
-import Library from "./pages/Library";
+
 import Picture from "./pages/Picture";
 import Text from "./pages/Text";
 
