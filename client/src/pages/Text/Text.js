@@ -11,21 +11,28 @@ class Text extends Component {
     item: {}
   };
 
-  componentDidMount() {
-    API.getItem(this.props.match.params.id)
-      .then(res => this.setState({ item: res.data }))
-      .catch(err => console.log(err));
-  }
+  // componentDidMount() {
+  //   API.getItem(this.props.match.params.id)
+  //     .then(res => this.setState({ item: res.data }))
+  //     .catch(err => console.log(err));
+  // }
 
   render() {
     return (
       <div>
         <Nav />
         <Container>
-          <h1>Text Page</h1>
-          <InputField />
-          <p>{this.state.item.text}</p>
-          <PollyContainer />
+          <Row>
+            <div className="col col-lg6">
+              <h1>Text Page</h1>
+              <InputField />
+              <PollyContainer />
+            </div>
+            <div className="col col-lg6 align-self-center justify-items-right">
+            <p>{this.state.item.text}</p>
+            </div>
+          </Row>
+
           <Footer />
         </Container>
       </div>

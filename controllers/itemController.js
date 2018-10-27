@@ -9,7 +9,7 @@ module.exports = {
     }, 
     findById: function (req, res) {
         db.Library
-            .findById(req.params.id)
+            .findById(req.params._id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
