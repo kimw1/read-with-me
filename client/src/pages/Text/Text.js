@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import InputField from "../../components/InputField";
-import API from "../../utils/API"
-import { Container, Col, Row } from "../../components/Grid";
+import { Container, Row } from "../../components/Grid";
 import PollyContainer from "../../utils/polly";
 
 class Text extends Component {
@@ -25,7 +23,6 @@ class Text extends Component {
           <Row>
             <div className="col col-lg6">
               <h1>Text Page</h1>
-              <InputField />
               <PollyContainer />
             </div>
             <div className="col col-lg6 align-self-center justify-items-right">

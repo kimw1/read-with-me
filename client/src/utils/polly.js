@@ -1,7 +1,6 @@
 import React from 'react';
 import AWS from 'aws-sdk';
 import API from "./API";
-import SaveButton from "../components/SaveButton"
 
 
 AWS.config.logger = console;
@@ -34,6 +33,7 @@ class PollyContainer extends React.Component {
             }))
             .catch(err => console.log(err));
     };
+
 
     // componentDidMount() {
     //     API.getItem(this.props.match.params.id)
@@ -68,6 +68,22 @@ class PollyContainer extends React.Component {
                 // .then(API.saveItem({ Text: this.state.Text }))
                 // .then(this.setState({ Text: "" }));
         };
+    };
+
+    handleSave(event) {
+        event.preventDefault();
+        
+        if (this.state.Text !== "") {
+          API.saveItem({
+            Text: this.state.Text,
+            url: this.state.url
+          })
+            .then(console.log("saved " + this.state.Text))
+            .then(this.setState({
+              text: ''
+            }))
+            .catch(err => console.log(err))
+      };
     };
 
     // handleVoices = (props) => {
@@ -107,9 +123,10 @@ class PollyContainer extends React.Component {
                     <label>Please input text you would like spoken.
                     <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
                     </label>
+                    <br></br>
                     <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
+                    <input type="save" disabled={this.state.Text === ''} onClick={this.handleSave} value="Save" className="btn btn-info m-3" />
                 </form>
-                <SaveButton/>
                 <div>
                     <audio controls id="polly-audio">
                         <source src={this.state.url} type="audio/mp3" />

@@ -3,11 +3,8 @@ import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Carousel from "../../components/Carousel";
-import { LibraryList, LibraryListItem } from "../../components/List"
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
 
-import DeleteButton from "../../components/DeleteButton";
+
 
 
 import { Col, Row, Container } from "../../components/Grid";
@@ -17,28 +14,7 @@ import signs from "../../utils/images/tokyo1trans.png";
 import placeholder from "../../utils/images/placeholder.png";
 
 class Home extends Component {
-  state = {
-    libraries: [],
-    text: ""
-  };
 
-  componentDidMount() {
-    this.loadLibrary();
-  }
-
-  deleteItem = id => {
-    API.deleteItem(id)
-      .then(res => this.loadLibrary())
-      .catch(err => console.log(err));
-  };
-
-  loadLibrary = () => {
-    API.getLibrary()
-      .then(res => 
-        this.setState({ libraries: res.data, text: "" })
-        )
-        .catch(err => console.log(err));
-  };
 
 
   render() {
@@ -60,20 +36,6 @@ class Home extends Component {
             </Col>
           </Row>
         </Container>
-        {this.state.libraries.length ? (
-        <LibraryList>
-        {this.state.libraries.map(libraries => (
-          <LibraryListItem key={libraries._id}>
-            <Link to={"/text/" + libraries._id}>
-              {libraries.text}
-            </Link>
-            <DeleteButton onClick={() => this.deleteItem(libraries._id)} /> 
-          </LibraryListItem>
-        ))}
-        </LibraryList>
-        ) : (
-          <h3>Nothing in your Library</h3>
-        )}
         <Footer />
       </div>
     );

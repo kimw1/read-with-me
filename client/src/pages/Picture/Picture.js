@@ -5,7 +5,7 @@ import TranslateButton from "../../components/TranslateButton";
 import BrowseButton from "../../components/BrowseButton";
 import DisplayButton from "../../components/DisplayButton";
 import Image from "../../components/Image";
-import { Container, Col, Row } from "../../components/Grid";
+import { Container } from "../../components/Grid";
 
 class Picture extends Component {
 
