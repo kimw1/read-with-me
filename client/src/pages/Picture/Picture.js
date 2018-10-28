@@ -6,6 +6,7 @@ import BrowseButton from "../../components/BrowseButton";
 import DisplayButton from "../../components/DisplayButton";
 import Image from "../../components/Image";
 import { Container, Col, Row } from "../../components/Grid";
+import PollyContainer from "../../utils/polly";
 
 class Picture extends Component {
 
@@ -19,6 +20,7 @@ class Picture extends Component {
                 <BrowseButton/>
                 <DisplayButton/>
                 <Image/>
+                <PollyContainer/>
                 <Footer/>
                 </Container>
              

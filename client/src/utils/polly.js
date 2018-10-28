@@ -79,27 +79,19 @@ class PollyContainer extends React.Component {
                 console.log(error.code, error.stack, error)
             }
             console.log("This is your data " + url);
-<<<<<<< HEAD
-            this.setState({url});
-=======
             this.setState({ url });
->>>>>>> small change to ignore and polly
             let pollyPlayer = document.getElementById("polly-audio");
             pollyPlayer.load();
         });
     };
 
-    // cancelButton = () => {
-    //     this.setState({
-    //         OutputFormat: "mp3",
-    //         Text: "",
-    //         TextType: "text",
-    //         VoiceId: "",
-    //         url: null})
-    // }
-
-    clearForm = () => {
-        document.getElementById("clear")[0].reset();
+    cancelButton = () => {
+        this.setState({
+            OutputFormat: "mp3",
+            Text: "",
+            TextType: "text",
+            VoiceId: "",
+            url: null})
     }
 
     render() {
@@ -109,18 +101,6 @@ class PollyContainer extends React.Component {
                     <div>
                         <label>Please input text you would like spoken.
                     <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
-<<<<<<< HEAD
-                    </label>
-                    <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
-                </form>
-                <SaveButton/>
-                <div>
-                    <audio controls id="polly-audio">
-                        <source src={this.state.url} type="audio/mp3" />
-                        {/* <p>Your browser doesn't support HTML5 audio. Here is a <a href={url}>link to the audio</a> instead.</p> */}
-                    </audio>
-                    <div>Please choose a language.</div>
-=======
                         </label>
                         <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
                         <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-info" />
@@ -131,7 +111,6 @@ class PollyContainer extends React.Component {
                             <p>Your browser doesn't support HTML5 audio. Here is a <a href={this.state.url}>link to the audio</a> instead.</p>
                         </audio>
                         <div>Please choose a language.</div>
->>>>>>> small change to ignore and polly
                         <select onChange={this.handleChange} name="VoiceId">
                             <option>---</option>
                             <option className="english" value="Joanna">US English</option>
