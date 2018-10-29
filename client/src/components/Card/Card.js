@@ -21,6 +21,7 @@ const Card = () => (
                 <p className="card-text">Make your morning commute more productive. RWM will accept a document in one of the supported text formats and read it to you.</p>
             </div>
         </div>
+        {/*
         <div className="card">
             <img className="card-img-top" src={img3} alt="Card image cap" />
             <div className="card-body">
@@ -28,6 +29,7 @@ const Card = () => (
                 <p className="card-text">Need an on-demand translator? Upload an image or document containing text in a foreign language and RWM will take care of the rest.</p>
             </div>
         </div>
+        */}
     </div>
 );
 

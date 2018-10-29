@@ -13,8 +13,7 @@ import DeleteButton from "../../components/DeleteButton";
 import { Col, Row, Container } from "../../components/Grid";
 import Card from "../../components/Card";
 
-import signs from "../../utils/images/tokyo1trans.png";
-import placeholder from "../../utils/images/placeholder.png";
+import signs from "../../utils/images/tokyo-1.png";
 
 class Home extends Component {
   state = {
@@ -45,8 +44,12 @@ class Home extends Component {
     return (
       <div>
         <Nav />
-        <Jumbotron title="ELUCIDATE YOUR SURROUNDINGS." src={signs}>More comfortable listening than reading? Our cutting-edge app supports image-to-voice conversion and even translation between languages.
+        {/*
+                <Jumbotron title="ELUCIDATE YOUR SURROUNDINGS." src={signs}>More comfortable listening than reading? Our cutting-edge app supports image-to-voice conversion and even translation between languages.
         </ Jumbotron>
+        */}
+        <Carousel />
+
         <Container>
           <Row>
             <Col size="md-12">
