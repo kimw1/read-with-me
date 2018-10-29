@@ -63,20 +63,7 @@ class Home extends Component {
             </Col>
           </Row>
         </Container>
-        {this.state.libraries.length ? (
-        <LibraryList>
-        {this.state.libraries.map(libraries => (
-          <LibraryListItem key={libraries._id}>
-            <Link to={"/text/" + libraries._id}>
-              {libraries.text}
-            </Link>
-            <DeleteButton onClick={() => this.deleteItem(libraries._id)} /> 
-          </LibraryListItem>
-        ))}
-        </LibraryList>
-        ) : (
-          <h3>Nothing in your Library</h3>
-        )}
+
         <Footer />
       </div>
     );
