@@ -55,14 +55,14 @@ class PollyContainer extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
+        this.selectSpeaker();
         if (this.state.Text !== "") {
             this.setState({
                 OutputFormat: "mp3",
                 TextType: "text",
                 Text: this.state.Text,
                 VoiceId: this.state.VoiceId
-            }, this.handleTextToVoice)
+            }, this.handleTextToVoice);
             console.log(this.state);
             //.then(API.saveItem({ Text: this.state.Text }))
             //this.setState({ Text: "", VoiceId: "" });
@@ -85,13 +85,21 @@ class PollyContainer extends React.Component {
         });
     };
 
-    cancelButton = () => {
+    selectSpeaker = () => {
+        const value = this.state.VoiceId;
+        if (value === "") {
+            alert("Please select a language.");
+        };
+    };
+
+    clearForm = () => {
         this.setState({
             OutputFormat: "mp3",
             Text: "",
             TextType: "text",
             VoiceId: "",
-            url: null})
+            url: null
+        })
     }
 
     render() {
@@ -112,7 +120,7 @@ class PollyContainer extends React.Component {
                         </audio>
                         <div>Please choose a language.</div>
                         <select onChange={this.handleChange} name="VoiceId">
-                            <option>---</option>
+                            <option value="">---</option>
                             <option className="english" value="Joanna">US English</option>
                             <option className="french" value="Celine">French</option>
                         </select>
