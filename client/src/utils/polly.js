@@ -2,6 +2,10 @@ import React from 'react';
 import AWS from 'aws-sdk';
 import API from "./API";
 
+const btn = {
+    float: 'right',
+    margin: '3px',
+};
 
 AWS.config.logger = console;
 
@@ -16,17 +20,27 @@ class PollyContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-                OutputFormat: "mp3",
-                Text: "",
-                TextType: "text",
-                VoiceId: "",
-                url: null
+            OutputFormat: "mp3",
+            Text: "",
+            TextType: "text",
+            VoiceId: "",
+            url: null
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSave = this.handleSave.bind(this);
 
+<<<<<<< HEAD
     }
+=======
+    loadLibrary = () => {
+        API.getLibrary()
+            .then(res => this.setState({
+                text: res.data
+            }))
+            .catch(err => console.log(err));
+    };
+>>>>>>> master
 
     
     // loadItem() {
@@ -41,7 +55,7 @@ class PollyContainer extends React.Component {
     }
 
     handleChange(event) {
-        const {name, value} = event.target
+        const { name, value } = event.target
         this.setState({
             [name]: value
         });
@@ -49,49 +63,37 @@ class PollyContainer extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        
+        this.selectSpeaker();
         if (this.state.Text !== "") {
             this.setState({
-              OutputFormat: "mp3",
+                OutputFormat: "mp3",
                 TextType: "text",
                 Text: this.state.Text,
                 VoiceId: this.state.VoiceId
-            }, this.handleTextToVoice )
+            }, this.handleTextToVoice);
             console.log(this.state);
-
-                // .then(API.saveItem({ Text: this.state.Text }))
-                // .then(this.setState({ Text: "" }));
+            //.then(API.saveItem({ Text: this.state.Text }))
+            //this.setState({ Text: "", VoiceId: "" });
         };
     };
 
-    // handleVoices = (props) => {
-
-    //     AWS.polly.describeVoices(this.state, (err, data) => {
-    //         if (err) {
-    //             console.log(err, err.stack);
-    //         }
-    //         else console.log(data);
-
-
-    //     });
-    // }
-
     handleTextToVoice = () => {
-        const {url, ...params} = this.state;
+        const { url, ...params } = this.state;
         console.log(this.state);
         const polly = new AWS.Polly.Presigner();
-        polly.getSynthesizeSpeechUrl(params, [60*60*24*7], (error, url) => {
+        polly.getSynthesizeSpeechUrl(params, [60 * 60 * 24 * 7], (error, url) => {
             console.log(this.state);
             if (error) {
                 console.log(error.code, error.stack, error)
             }
             console.log("This is your data " + url);
-            this.setState({url});
+            this.setState({ url });
             let pollyPlayer = document.getElementById("polly-audio");
             pollyPlayer.load();
         });
     };
 
+<<<<<<< HEAD
     handleSave(event) {
         event.preventDefault();
         
@@ -105,14 +107,33 @@ class PollyContainer extends React.Component {
       };
     };
 
+=======
+    selectSpeaker = () => {
+        const value = this.state.VoiceId;
+        if (value === "") {
+            alert("Please select a language.");
+        };
+    };
+>>>>>>> master
 
+    clearForm = () => {
+        this.setState({
+            OutputFormat: "mp3",
+            Text: "",
+            TextType: "text",
+            VoiceId: "",
+            url: null
+        })
+    }
 
     render() {
         return (
             <div>
-                <form>
-                    <label>Please input text you would like spoken.
+                <form name="Input-text-to-read" id="clear">
+                    <div className="form-group">
+                        <label><h5>Please input text you would like spoken.</h5></label>
                     <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
+<<<<<<< HEAD
                     </label>
                     <br></br>
                     <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
@@ -124,12 +145,25 @@ class PollyContainer extends React.Component {
                         {/* <p>Your browser doesn't support HTML5 audio. Here is a <a href={url}>link to the audio</a> instead.</p> */}
                     </audio>
                     <div>Please choose a language.</div>
+=======
+                        
+                        <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-dark" style={btn} />
+                        <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-dark" style={btn}  />
+                    </div>
+                    <div>
+                        <audio controls id="polly-audio">
+                            <source src={this.state.url} type="audio/mp3" />
+                            <p>Your browser doesn't support HTML5 audio. Here is a <a href={this.state.url}>link to the audio</a> instead.</p>
+                        </audio>
+                        <div>Please choose a language.</div>
+>>>>>>> master
                         <select onChange={this.handleChange} name="VoiceId">
-                        <option>---</option>
-                        <option className="english"  value="Joanna">US English</option>
-                        <option className="french"  value="Celine">French</option>
-                    </select>
-                </div>
+                            <option value="">---</option>
+                            <option className="english" value="Joanna">US English</option>
+                            <option className="french" value="Celine">French</option>
+                        </select>
+                    </div>
+                </form>
             </div>)
     };
 };

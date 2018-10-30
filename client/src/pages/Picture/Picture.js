@@ -5,7 +5,12 @@ import TranslateButton from "../../components/TranslateButton";
 import BrowseButton from "../../components/BrowseButton";
 import DisplayButton from "../../components/DisplayButton";
 import Image from "../../components/Image";
+<<<<<<< HEAD
 import { Container } from "../../components/Grid";
+=======
+import { Container, Col, Row } from "../../components/Grid";
+import PollyContainer from "../../utils/polly";
+>>>>>>> master
 
 class Picture extends Component {
 
@@ -19,6 +24,7 @@ class Picture extends Component {
                 <BrowseButton/>
                 <DisplayButton/>
                 <Image/>
+                <PollyContainer/>
                 <Footer/>
                 </Container>
              
