@@ -3,6 +3,10 @@ import AWS from 'aws-sdk';
 import API from "./API";
 import SaveButton from "../components/SaveButton"
 
+const btn = {
+    float: 'right',
+    margin: '3px',
+};
 
 AWS.config.logger = console;
 
@@ -106,12 +110,12 @@ class PollyContainer extends React.Component {
         return (
             <div>
                 <form name="Input-text-to-read" id="clear">
-                    <div>
-                        <label>Please input text you would like spoken.
+                    <div className="form-group">
+                        <label><h5>Please input text you would like spoken.</h5></label>
                     <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
-                        </label>
-                        <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
-                        <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-info" />
+                        
+                        <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-dark" style={btn} />
+                        <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-dark" style={btn}  />
                     </div>
                     <div>
                         <audio controls id="polly-audio">

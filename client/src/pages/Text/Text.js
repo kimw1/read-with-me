@@ -59,11 +59,13 @@ class Text extends Component {
 
                     <br />
 
-                    <div className="form-group">
+                    <PollyContainer />
+
+                    {/* <div className="form-group">
                       <label htmlFor="exampleFormControlTextarea1"><h5>Enter text:</h5></label>
                       <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
-                    <button type="submit" className="btn btn-dark" style={submitButtonStyle}>Submit</button>
+                    <button type="submit" className="btn btn-dark" style={submitButtonStyle}>Submit</button> */}
                   </div>
                 </div>
 
