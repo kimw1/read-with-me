@@ -24,18 +24,12 @@ class PollyContainer extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+
     }
 
-    loadLibrary = () => {
-        API.getLibrary()
-            .then(res => this.setState({
-                text: this.res.data
-            }))
-            .catch(err => console.log(err));
-    };
-
-
-    // componentDidMount() {
+    
+    // loadItem() {
     //     API.getItem(this.props.match.params.id)
     //       .then(res => this.setState({ item: res.data }))
     //       .catch(err => console.log(err));
@@ -70,22 +64,6 @@ class PollyContainer extends React.Component {
         };
     };
 
-    handleSave(event) {
-        event.preventDefault();
-        
-        if (this.state.Text !== "") {
-          API.saveItem({
-            Text: this.state.Text,
-            url: this.state.url
-          })
-            .then(console.log("saved " + this.state.Text))
-            .then(this.setState({
-              text: ''
-            }))
-            .catch(err => console.log(err))
-      };
-    };
-
     // handleVoices = (props) => {
 
     //     AWS.polly.describeVoices(this.state, (err, data) => {
@@ -114,6 +92,19 @@ class PollyContainer extends React.Component {
         });
     };
 
+    handleSave(event) {
+        event.preventDefault();
+        
+        if (this.state.Text !== "") {
+          API.saveItem({
+            Text: this.state.Text,
+            url: this.state.url
+          })
+            .then(console.log(`saved ${this.state.Text} & ${this.state.url}`))
+            .catch(err => console.log(err))
+      };
+    };
+
 
 
     render() {
@@ -125,7 +116,7 @@ class PollyContainer extends React.Component {
                     </label>
                     <br></br>
                     <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
-                    <input type="save" disabled={this.state.Text === ''} onClick={this.handleSave} value="Save" className="btn btn-info m-3" />
+                    <input type="save" disabled={this.state.url === null} onClick={this.handleSave} value="Save" className="btn btn-info m-3" />
                 </form>
                 <div>
                     <audio controls id="polly-audio">

@@ -9,7 +9,8 @@ import { LibraryList, LibraryListItem } from "../../components/List"
 class Library extends Component {
     state = {
         libraries: [],
-        text: ""
+        text: "",
+        url: ""
       };
     
       componentDidMount() {
@@ -40,7 +41,7 @@ class Library extends Component {
                         {this.state.libraries.map(libraries => (
                             <LibraryListItem key={libraries._id}>
                                 <Link to={"/text/" + libraries._id}>
-                                    {libraries.text}
+                                {libraries.Text} 
                                 </Link>
                                 <DeleteButton onClick={() => this.deleteItem(libraries._id)} />
                             </LibraryListItem>

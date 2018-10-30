@@ -2,4 +2,8 @@
     float: right;
     color: #fff;
   }
+
+.delete-btn:hover {
+  cursor: pointer
+}
   
