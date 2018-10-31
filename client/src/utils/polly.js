@@ -29,10 +29,8 @@ class PollyContainer extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSave = this.handleSave.bind(this);
+    };
 
-<<<<<<< HEAD
-    }
-=======
     loadLibrary = () => {
         API.getLibrary()
             .then(res => this.setState({
@@ -40,14 +38,6 @@ class PollyContainer extends React.Component {
             }))
             .catch(err => console.log(err));
     };
->>>>>>> master
-
-    
-    // loadItem() {
-    //     API.getItem(this.props.match.params.id)
-    //       .then(res => this.setState({ item: res.data }))
-    //       .catch(err => console.log(err));
-    //   }
 
     Polly = () => {
         return new AWS.Polly({ apiVersion: '2016-06-10' })
@@ -93,28 +83,25 @@ class PollyContainer extends React.Component {
         });
     };
 
-<<<<<<< HEAD
     handleSave(event) {
         event.preventDefault();
-        
+
         if (this.state.Text !== "") {
-          API.saveItem({
-            Text: this.state.Text,
-            url: this.state.url
-          })
-            .then(console.log(`saved ${this.state.Text} & ${this.state.url}`))
-            .catch(err => console.log(err))
-      };
+            API.saveItem({
+                Text: this.state.Text,
+                url: this.state.url
+            })
+                .then(console.log(`saved ${this.state.Text} & ${this.state.url}`))
+                .catch(err => console.log(err))
+        };
     };
 
-=======
     selectSpeaker = () => {
         const value = this.state.VoiceId;
         if (value === "") {
             alert("Please select a language.");
         };
     };
->>>>>>> master
 
     clearForm = () => {
         this.setState({
@@ -132,23 +119,12 @@ class PollyContainer extends React.Component {
                 <form name="Input-text-to-read" id="clear">
                     <div className="form-group">
                         <label><h5>Please input text you would like spoken.</h5></label>
-                    <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
-<<<<<<< HEAD
-                    </label>
-                    <br></br>
-                    <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-info" />
-                    <input type="save" disabled={this.state.url === null} onClick={this.handleSave} value="Save" className="btn btn-info m-3" />
-                </form>
-                <div>
-                    <audio controls id="polly-audio">
-                        <source src={this.state.url} type="audio/mp3" />
-                        {/* <p>Your browser doesn't support HTML5 audio. Here is a <a href={url}>link to the audio</a> instead.</p> */}
-                    </audio>
-                    <div>Please choose a language.</div>
-=======
-                        
+                        <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
+
                         <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-dark" style={btn} />
-                        <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-dark" style={btn}  />
+                        <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-dark" style={btn} />
+                        <input type="save" disabled={this.state.url === null} onClick={this.handleSave} value="Save" className="btn btn-info" style={btn} />
+
                     </div>
                     <div>
                         <audio controls id="polly-audio">
@@ -156,7 +132,6 @@ class PollyContainer extends React.Component {
                             <p>Your browser doesn't support HTML5 audio. Here is a <a href={this.state.url}>link to the audio</a> instead.</p>
                         </audio>
                         <div>Please choose a language.</div>
->>>>>>> master
                         <select onChange={this.handleChange} name="VoiceId">
                             <option value="">---</option>
                             <option className="english" value="Joanna">US English</option>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import { Container, Row } from "../../components/Grid";
+import { Container, Row, Col } from "../../components/Grid";
 import PollyContainer from "../../utils/polly";
 import API from "../../utils/API"
 
@@ -14,39 +14,17 @@ const uploadButtonStyle = {
 }
 
 class Text extends Component {
-    state = {  
-      libraries: {}
-    };
+  state = {
+    libraries: {}
+  };
 
 
-    // componentDidMount() {
-    //   API.getItem(this.props.match.params.id)
-    //     .then(res => this.setState({ item: res.data }))
-    //     .catch(err => console.log(err));
-    // };
+  componentDidMount() {
+    API.getItem(this.props.match.params.id)
+      .then(res => this.setState({ libraries: res.data }))
+      .catch(err => console.log(err));
+  };
 
-<<<<<<< HEAD
-    render() {
-      return (
-        <div>
-          <Nav />
-          <Container>
-            <Row>
-              <div className="col-md-6 offset-md-3">
-                <h1>Text Page</h1>
-                <PollyContainer />
-              </div>
-              {/* <div className="col col-lg6 align-self-center justify-items-right">
-                <p>{this.state.item.Text}</p>
-              </div> */}
-            </Row>
-
-            <Footer />
-          </Container>
-        </div>
-      );
-    }
-=======
   render() {
     return (
       <div>
@@ -80,9 +58,7 @@ class Text extends Component {
                     </div>
 
                     <br />
-
-                    <PollyContainer />
-
+                      <PollyContainer />
                     {/* <div className="form-group">
                       <label htmlFor="exampleFormControlTextarea1"><h5>Enter text:</h5></label>
                       <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -94,9 +70,9 @@ class Text extends Component {
                 <div className="card border-success mb-3">
                   <div className="card-header">Now reading</div>
                   <div className="card-body text-success">
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p className="card-text">{this.state.libraries.Text}</p>
                   </div>
-                </div>
+                </div>;
 
               </div>
             </Col>
@@ -121,8 +97,8 @@ class Text extends Component {
         </Container>
         */}
       </div>
-    );
->>>>>>> master
-  }
+    )
+  };
+};
 
-  export default Text;
+export default Text;

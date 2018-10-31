@@ -9,17 +9,19 @@ module.exports = {
     }, 
     findById: function (req, res) {
         db.Library
-            .findById(req.params.id)
+            .findById( {_id: req.params.id} )
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
         const text=req.body.Text;
         const url=req.body.url;
+        const VoiceId=req.body.VoiceId;
         db.Library
             .create({
                 Text: text,
-                url: url
+                url: url,
+                VoiceId: VoiceId
             })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

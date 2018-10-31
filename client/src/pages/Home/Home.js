@@ -39,10 +39,6 @@ class Home extends Component {
             </Col>
           </Row>
         </Container>
-<<<<<<< HEAD
-=======
-
->>>>>>> master
         <Footer />
       </div>
     );
