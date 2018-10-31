@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import InputField from "../../components/InputField";
-import API from "../../utils/API"
-import { Container, Col, Row } from "../../components/Grid";
+import { Container, Row, Col } from "../../components/Grid";
 import PollyContainer from "../../utils/polly";
+import API from "../../utils/API"
 
 const submitButtonStyle = {
   "float": "right"
@@ -16,14 +15,8 @@ const uploadButtonStyle = {
 
 class Text extends Component {
   state = {
-    item: {}
+    libraries: {}
   };
-
-  // componentDidMount() {
-  //   API.getItem(this.props.match.params.id)
-  //     .then(res => this.setState({ item: res.data }))
-  //     .catch(err => console.log(err));
-  // }
 
   render() {
     return (
@@ -58,9 +51,7 @@ class Text extends Component {
                     </div>
 
                     <br />
-
-                    <PollyContainer />
-
+                      <PollyContainer />
                     {/* <div className="form-group">
                       <label htmlFor="exampleFormControlTextarea1"><h5>Enter text:</h5></label>
                       <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -72,9 +63,9 @@ class Text extends Component {
                 <div className="card border-success mb-3">
                   <div className="card-header">Now reading</div>
                   <div className="card-body text-success">
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p className="card-text"></p>
                   </div>
-                </div>
+                </div>;
 
               </div>
             </Col>
@@ -99,8 +90,8 @@ class Text extends Component {
         </Container>
         */}
       </div>
-    );
-  }
-}
+    )
+  };
+};
 
 export default Text;

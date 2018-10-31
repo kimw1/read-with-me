@@ -15,6 +15,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
 }
 
+// Define API routes here
+const routes = require('./routes');
+app.use(routes);
+
 // Database configuration with mongoose
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
 
@@ -22,13 +26,6 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/readwithmeDB", { useNewUrlParser: true });
-
-// Define API routes here
-const routes = require('./routes');
-app.use(routes);
-
-
-
 // Database configuration with mongoose
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB", { useNewUrlParser: true })
 
