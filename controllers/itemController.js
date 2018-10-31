@@ -20,8 +20,7 @@ module.exports = {
         db.Library
             .create({
                 Text: text,
-                url: url,
-                VoiceId: VoiceId
+                url: url
             })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

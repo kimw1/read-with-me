@@ -18,13 +18,6 @@ class Text extends Component {
     libraries: {}
   };
 
-
-  componentDidMount() {
-    API.getItem(this.props.match.params.id)
-      .then(res => this.setState({ libraries: res.data }))
-      .catch(err => console.log(err));
-  };
-
   render() {
     return (
       <div>
@@ -70,7 +63,7 @@ class Text extends Component {
                 <div className="card border-success mb-3">
                   <div className="card-header">Now reading</div>
                   <div className="card-body text-success">
-                    <p className="card-text">{this.state.libraries.Text}</p>
+                    <p className="card-text"></p>
                   </div>
                 </div>;
 

@@ -9,11 +9,7 @@ const librarySchema = new Schema({
   url: {
     type: String,
     required: true
-  },
-  VoiceId: {
-    type: String,
-    required: true
-}
+  }
 });
 
 const Library = mongoose.model("Library", librarySchema);
