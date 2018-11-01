@@ -71,7 +71,7 @@ class PollyContainer extends React.Component {
         const { url, ...params } = this.state;
         console.log(this.state);
         const polly = new AWS.Polly.Presigner();
-        polly.getSynthesizeSpeechUrl(params, [60 * 60 * 24 * 7], (error, url) => {
+        polly.getSynthesizeSpeechUrl(params, [6000], (error, url) => {
             console.log(this.state);
             if (error) {
                 console.log(error.code, error.stack, error)

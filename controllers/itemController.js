@@ -16,7 +16,6 @@ module.exports = {
     create: function (req, res) {
         const text=req.body.Text;
         const url=req.body.url;
-        const VoiceId=req.body.VoiceId;
         db.Library
             .create({
                 Text: text,
