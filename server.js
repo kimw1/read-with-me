@@ -19,15 +19,10 @@ if (process.env.NODE_ENV === "production") {
 const routes = require('./routes');
 app.use(routes);
 
-// Database configuration with mongoose
-//const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB";
-
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB", { useNewUrlParser: true });
-// Database configuration with mongoose
- mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/readwithmeDB", { useNewUrlParser: true })
 
 // Send every other request to the React app
 // Define any API routes before this runs

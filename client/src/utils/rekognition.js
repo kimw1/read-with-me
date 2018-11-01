@@ -36,8 +36,8 @@ class RekognitionContainer extends React.Component {
             const array = new Uint8Array(arrayBuffer);
             const binaryString = String.fromCharCode.apply(null, array);
 
-            console.log(binaryString);
-            this.setState({ Bytes: binaryString });
+            console.log(array);
+            this.setState({ Bytes: array });
             // this.setState({
             //     Bytes: 
             // })
@@ -71,24 +71,13 @@ class RekognitionContainer extends React.Component {
         };
 
         reader.readAsArrayBuffer(file);
-        
-
-        // let imageBlob = new Blob([event.target.files[0]], { type: "data:image/jpeg;base64" });
-        // const reader = new FileReader();
-        // reader.addEventListener("loadend", (event) => { document.getElementById("inputGroupFile04").innerHTML = event.srcElement.result });
-        // reader.readAsBinaryString(imageBlob);
-        // console.log(imageBlob);
-
-        // this.setState({
-        //     Bytes: imageBlob
-        // });
     };
 
     handlePictureToText = () => {
-        const { Bytes } = this.state;
+        //const { Bytes } = this.state;
         console.log(this.state);
         const rekognition = new AWS.Rekognition({ apiVersion: '2016-06-27' })
-        rekognition.detectText({ Image: Bytes }, (error, data) => {
+        rekognition.detectText({ Image: {Bytes: this.state} }, (error, data) => {
             console.log(this.state);
             if (error) {
                 console.log(error.code, error.stack, error)
