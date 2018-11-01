@@ -3,8 +3,6 @@ import axios from "axios";
 import classnames from "classnames";
 import "./LoginComponent.css";
 
-
-
 class LoginComponent extends Component {
   constructor() {
     super();

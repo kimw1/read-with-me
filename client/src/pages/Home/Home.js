@@ -2,13 +2,8 @@ import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Carousel from "../../components/Carousel";
-
-
-
-
 import { Col, Row, Container } from "../../components/Grid";
 import Card from "../../components/Card";
-
 
 class Home extends Component {
 
@@ -18,10 +13,6 @@ class Home extends Component {
     return (
       <div>
         <Nav />
-        {/*
-                <Jumbotron title="ELUCIDATE YOUR SURROUNDINGS." src={signs}>More comfortable listening than reading? Our cutting-edge app supports image-to-voice conversion and even translation between languages.
-        </ Jumbotron>
-        */}
         <Carousel />
 
         <Container>
