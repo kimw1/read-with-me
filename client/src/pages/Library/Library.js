@@ -4,7 +4,8 @@ import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import DeleteButton from "../../components/DeleteButton";
 import { Link } from "react-router-dom";
-import { LibraryList, LibraryListItem } from "../../components/List"    
+import { LibraryList, LibraryListItem } from "../../components/List"
+import Col from "../../components/Grid";
 
 class Library extends Component {
     state = {
@@ -17,11 +18,6 @@ class Library extends Component {
         this.loadLibrary();
     }
 
-    // componentDidMount() {
-    //     API.getItem(this.props.match.params.id)
-    //       .then(res => this.setState({ libraries: res.data }))
-    //       .catch(err => console.log(err));
-    //   };
 
     deleteItem = id => {
         API.deleteItem(id)
@@ -45,7 +41,6 @@ class Library extends Component {
     }
 
     render() {
-        console.log(this.state.libraries.url)
         return (
             <div>
                 <Nav />
@@ -65,20 +60,19 @@ class Library extends Component {
                         ))}
                     </LibraryList>
                 ) : (
-                        <h3>Nothing Here</h3>
+                        <div className="col-md-4 offset-md-4">
+                            <div className="card border-success mt-3">
+                                <div className="card-header">Now reading</div>
+                                <div className="card-body text-success">
+                                    <p className="card-text">{this.state.libraries.Text}</p>
+                                </div>
+                                <audio controls>
+                                    <source src={this.state.libraries.url} type="audio/mp3" />
+                                    <p>Your browser doesn't support HTML5 audio. Here is a <a href={this.state.libraries.url}>link to the audio</a> instead.</p>
+                                </audio>
+                            </div>
+                        </div>
                     )}
-                <div className="card border-success mt-3">
-                    <div className="card-header">Now reading</div>
-                    <div className="card-body text-success">
-                        <p className="card-text">{this.state.libraries.Text} 
-                        <br></br>
-                        {this.state.libraries.url}</p>
-                    </div>
-                    <audio controls>
-                        <source src={this.state.libraries.url} type="audio/mp3" />
-                        <p>Your browser doesn't support HTML5 audio. Here is a <a href={this.state.libraries.url}>link to the audio</a> instead.</p>
-                    </audio>
-                </div>;
                 <Footer />
             </div>
         )
