@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Carousel from "../../components/Carousel";
@@ -10,7 +9,6 @@ import Carousel from "../../components/Carousel";
 import { Col, Row, Container } from "../../components/Grid";
 import Card from "../../components/Card";
 
-import signs from "../../utils/images/tokyo-1.png";
 
 class Home extends Component {
 
