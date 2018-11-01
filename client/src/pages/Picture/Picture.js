@@ -14,6 +14,7 @@ class Picture extends Component {
                 <Container>
                 <h1>Photo</h1>
                <RekognitionContainer/>
+
                 <PollyContainer/>
                 <Footer/>
                 </Container>
