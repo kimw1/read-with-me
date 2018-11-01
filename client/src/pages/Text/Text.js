@@ -65,7 +65,7 @@ class Text extends Component {
                   <div className="card-body text-success">
                     <p className="card-text"></p>
                   </div>
-                </div>;
+                </div>
 
               </div>
             </Col>
