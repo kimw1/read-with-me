@@ -9,13 +9,18 @@ module.exports = {
     }, 
     findById: function (req, res) {
         db.Library
-            .findById(req.params._id)
+            .findById( {_id: req.params.id} )
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
+        const text=req.body.Text;
+        const url=req.body.url;
         db.Library
-            .create({text: req.body.text})
+            .create({
+                Text: text,
+                url: url
+            })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },  

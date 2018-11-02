@@ -1,7 +1,6 @@
 import React from 'react';
 import AWS from 'aws-sdk';
 import API from "./API";
-import SaveButton from "../components/SaveButton"
 
 const btn = {
     float: 'right',
@@ -29,7 +28,8 @@ class PollyContainer extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+        this.handleSave = this.handleSave.bind(this);
+    };
 
     loadLibrary = () => {
         API.getLibrary()
@@ -38,12 +38,6 @@ class PollyContainer extends React.Component {
             }))
             .catch(err => console.log(err));
     };
-
-    // componentDidMount() {
-    //     API.getItem(this.props.match.params.id)
-    //       .then(res => this.setState({ item: res.data }))
-    //       .catch(err => console.log(err));
-    //   }
 
     Polly = () => {
         return new AWS.Polly({ apiVersion: '2016-06-10' })
@@ -77,7 +71,7 @@ class PollyContainer extends React.Component {
         const { url, ...params } = this.state;
         console.log(this.state);
         const polly = new AWS.Polly.Presigner();
-        polly.getSynthesizeSpeechUrl(params, [60 * 60 * 24 * 7], (error, url) => {
+        polly.getSynthesizeSpeechUrl(params, [6000], (error, url) => {
             console.log(this.state);
             if (error) {
                 console.log(error.code, error.stack, error)
@@ -87,6 +81,19 @@ class PollyContainer extends React.Component {
             let pollyPlayer = document.getElementById("polly-audio");
             pollyPlayer.load();
         });
+    };
+
+    handleSave(event) {
+        event.preventDefault();
+
+        if (this.state.Text !== "") {
+            API.saveItem({
+                Text: this.state.Text,
+                url: this.state.url
+            })
+                .then(console.log(`saved ${this.state.Text} & ${this.state.url}`))
+                .catch(err => console.log(err))
+        };
     };
 
     selectSpeaker = () => {
@@ -112,10 +119,12 @@ class PollyContainer extends React.Component {
                 <form name="Input-text-to-read" id="clear">
                     <div className="form-group">
                         <label><h5>Please input text you would like spoken.</h5></label>
-                    <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
-                        
+                        <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
+
                         <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-dark" style={btn} />
-                        <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-dark" style={btn}  />
+                        <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-dark" style={btn} />
+                        <input type="save" disabled={this.state.url === null} onClick={this.handleSave} value="Save" className="btn btn-info" style={btn} />
+
                     </div>
                     <div>
                         <audio controls id="polly-audio">

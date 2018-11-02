@@ -2,7 +2,9 @@ import React from "react";
 
 //renders a bootstrap list item
 export const LibraryList = props => (
-  <ul className="list-group">{props.children}</ul>
+  <div className="col-md-6 offset-md-3">
+      <ul className="list-group">{props.children}</ul>
+  </div>
 );
 
 // const List = () => (

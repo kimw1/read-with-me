@@ -1,19 +1,82 @@
 import React, { Component } from "react";
-import Jumbotron from "../../components/Jumbotron";
+
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-
-
+import API from "../../utils/API";
+import DeleteButton from "../../components/DeleteButton";
+import { Link } from "react-router-dom";
+import { LibraryList, LibraryListItem } from "../../components/List"
+import Col from "../../components/Grid";
 
 class Library extends Component {
+    state = {
+        libraries: {},
+        text: "",
+        url: ""
+    };
+
+    componentDidMount() {
+        this.loadLibrary();
+    }
+
+
+    deleteItem = id => {
+        API.deleteItem(id)
+            .then(res => this.loadLibrary())
+            .catch(err => console.log(err));
+    };
+
+    loadLibrary = () => {
+        API.getLibrary()
+            .then(res =>
+                this.setState({ libraries: res.data })
+            )
+            .catch(err => console.log(err));
+    };
+
+    loadItem = () => {
+        API.getItem(this.props.match.params.id)
+            .then(res => this.setState({ libraries: res.data }),
+            )
+            .catch(err => console.log(err));
+    }
+
 
     render() {
         return (
             <div>
                 <Nav />
-                <Jumbotron />
-                <h1>Welcome to your library</h1>
-                <p>Your Articles: </p>
+
+                <h1>Your Library</h1>
+                {this.state.libraries.length ? (
+                    <LibraryList>
+                        {this.state.libraries.map(libraries => (
+                            <LibraryListItem key={libraries._id}>
+                                <Link
+                                    to={"/library/" + libraries._id}
+                                    onClick={this.loadItem()}
+                                >
+                                    {libraries.Text}
+                                </Link>
+                                <DeleteButton onClick={() => this.deleteItem(libraries._id)} />
+                            </LibraryListItem>
+                        ))}
+                    </LibraryList>
+                ) : (
+                        <div className="col-md-4 offset-md-4">
+                            <div className="card border-success mt-3">
+                                <div className="card-header">Now reading</div>
+                                <div className="card-body text-success">
+                                    <p className="card-text">{this.state.libraries.Text}</p>
+                                </div>
+                                <audio controls>
+                                    <source src={this.state.libraries.url} type="audio/mp3" />
+                                    <p>Your browser doesn't support HTML5 audio. Here is a <a href={this.state.libraries.url}>link to the audio</a> instead.</p>
+                                </audio>
+                            </div>
+                        </div>
+                    )}
+
                 <Footer />
             </div>
         )

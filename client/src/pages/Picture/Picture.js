@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import TranslateButton from "../../components/TranslateButton";
-import BrowseButton from "../../components/BrowseButton";
-import DisplayButton from "../../components/DisplayButton";
-import Image from "../../components/Image";
 import { Container, Col, Row } from "../../components/Grid";
 import PollyContainer from "../../utils/polly";
+import RekognitionContainer from "../../utils/rekognition";
 
 class Picture extends Component {
 
@@ -16,10 +13,8 @@ class Picture extends Component {
                 <Nav/>
                 <Container>
                 <h1>Photo</h1>
-                <TranslateButton/>
-                <BrowseButton/>
-                <DisplayButton/>
-                <Image/>
+               <RekognitionContainer/>
+
                 <PollyContainer/>
                 <Footer/>
                 </Container>
