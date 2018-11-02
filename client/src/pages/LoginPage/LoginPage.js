@@ -8,9 +8,14 @@ class LoginPage extends Component {
     render() {
         return (
             <div>
+
+         
+                
+
                 <Nav />        
-                <LoginComponent/>
+                <LoginComponent {...this.props} />
                 <Footer />
+
             </div>
         )
     }

@@ -17,6 +17,7 @@ const User = require('../../models/User');
 // @desc    Register user
 // @access  Public
 router.post('/register', (req, res) => {
+  console.log('Is this route being hit?')
   const { errors, isValid } = validateRegisterInput(req.body);
 
   // Check Validation
@@ -49,7 +50,7 @@ router.post('/register', (req, res) => {
           newUser
             .save()
             .then(user => res.json(user))
-            .catch(err => console.log(err.response.data));
+            .catch(err => console.log(err));
         });
       });
     }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import API from "../../utils/API";
@@ -40,10 +41,12 @@ class Library extends Component {
             .catch(err => console.log(err));
     }
 
+
     render() {
         return (
             <div>
                 <Nav />
+
                 <h1>Your Library</h1>
                 {this.state.libraries.length ? (
                     <LibraryList>
@@ -73,6 +76,7 @@ class Library extends Component {
                             </div>
                         </div>
                     )}
+
                 <Footer />
             </div>
         )

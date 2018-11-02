@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import classnames from "classnames";
 import "./LoginComponent.css";
@@ -11,7 +12,6 @@ class LoginComponent extends Component {
       password: '',
       errors: {}
     }
-    
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);    
   }
@@ -30,18 +30,16 @@ class LoginComponent extends Component {
     .post('/api/users/login', user)
     .then(res => {
       console.log(res.data);
-      this.props.userBecameAuthed(); 
+      this.props.userBecameAuthed();       
       })
-    // .catch(err => console.log(err));
-    .catch(err => this.setState({ errors: err.response.data }));
-    
-  
+    .catch(err => console.log(err));
+    // .catch(err => this.setState({ errors: err.response.data }));
   }
   
   render() {
     const { errors } = this.state;
-    
-    return (
+    console.log(this.props.auth);
+    return this.props.auth.isAuthenticated ? <Redirect to ="/library"/> : (
       <div className="LoginComponent">
         <div className="container">
           <div className="row">
