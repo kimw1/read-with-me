@@ -10,7 +10,6 @@ const imgStyle = {
 export default class Nav extends Component {
     render() {
       return (
-        
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
           <div className="container">
             <Link className="navbar-brand" to="/">
@@ -40,13 +39,17 @@ export default class Nav extends Component {
                   <Link className="nav-link" to="/text">
                     Text
                   </Link>
-                </li>      <li className="nav-item">
+                </li>      
+                <li className="nav-item">
                   <Link className="nav-link" to="/picture">
                     Picture
                   </Link>
-                  
                 </li>
-                
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

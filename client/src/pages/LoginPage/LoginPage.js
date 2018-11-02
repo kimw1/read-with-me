@@ -8,7 +8,7 @@ class LoginPage extends Component {
         return (
             <div>
          
-                <LoginComponent/>
+                <LoginComponent {...this.props} />
             </div>
         )
     }
