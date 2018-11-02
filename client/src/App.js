@@ -44,13 +44,13 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-        <Route path="/login" exact={true} component={LoginPage} />
+        {/* <Route path="/login" exact={true} component={LoginPage} />
         <Route path="/register" exact={true} component={RegisterPage} />
         <Route path="/library" exact={true} component={Library} />
         <Route path="/text" exact={true} component={Text} />
         <Route path="/library/:id" exact={true} component={Library} />
         <Route path="/picture" exact={true} component={Picture} />
-        { <SecureRoute path="/library" exact={true} component={Library} />
+        { <SecureRoute path="/library" exact={true} component={Library} /> */}
 
           <Route
             path="/login"
