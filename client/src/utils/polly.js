@@ -7,6 +7,10 @@ const btn = {
     margin: '3px',
 };
 
+const save = {
+    marginTop: '3px',
+};
+
 AWS.config.logger = console;
 
 AWS.config = new AWS.Config({
@@ -118,19 +122,20 @@ class PollyContainer extends React.Component {
             <div>
                 <form name="Input-text-to-read" id="clear">
                     <div className="form-group">
-                        <label><h5>Please input text you would like spoken.</h5></label>
+                        <label><h5>Text Input</h5></label>
                         <textarea name="Text" defaultValue={this.state.Text} onChange={this.handleChange} className="form-control" />
 
                         <input type="submit" disabled={this.state.Text === ''} onClick={this.handleSubmit} value="Submit" className="btn btn-dark" style={btn} />
                         <input type="submit" disabled={this.state.Text === ''} onClick={this.clearForm} value="Clear" className="btn btn-dark" style={btn} />
-                        <input type="save" disabled={this.state.url === null} onClick={this.handleSave} value="Save" className="btn btn-info" style={btn} />
+                        <input type="save" disabled={this.state.url === null} onClick={this.handleSave} value="Save" className="btn btn-info" style={save} />
 
                     </div>
-                    <div>
+                    <div style={{textAlign:'center'}}>
                         <audio controls id="polly-audio">
                             <source src={this.state.url} type="audio/mp3" />
                             <p>Your browser doesn't support HTML5 audio. Here is a <a href={this.state.url}>link to the audio</a> instead.</p>
                         </audio>
+                        <br/> <br/>
                         <div>Please choose a language.</div>
                         <select onChange={this.handleChange} name="VoiceId">
                             <option value="">---</option>

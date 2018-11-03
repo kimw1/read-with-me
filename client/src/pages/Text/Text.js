@@ -5,9 +5,9 @@ import { Container, Row, Col } from "../../components/Grid";
 import PollyContainer from "../../utils/polly";
 import API from "../../utils/API"
 
-const submitButtonStyle = {
-  "float": "right"
-}
+// const submitButtonStyle = {
+//   "float": "right"
+// }
 
 const uploadButtonStyle = {
   "marginLeft": "15px"
