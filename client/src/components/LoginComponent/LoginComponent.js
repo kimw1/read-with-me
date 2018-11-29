@@ -38,7 +38,7 @@ class LoginComponent extends Component {
   
   render() {
     const { errors } = this.state;
-    //console.log(this.props.auth);
+    console.log(this.props.auth);
     return this.props.auth.isAuthenticated ? <Redirect to ="/library"/> : (
       <div className="LoginComponent">
         <div className="container">

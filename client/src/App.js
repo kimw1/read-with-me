@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           {/* <Route path="/login" exact={true} component={LoginPage} /> */}
           {/* <Route path="/register" exact={true} component={RegisterPage} /> */}
           {/* <Route path="/library" exact={true} component={Library} /> */}
@@ -53,7 +53,7 @@ class App extends Component {
           {/* <SecureRoute path="/library" exact={true} component={Library} /> */}
 
           <Route
-            path="/login"
+            path="/"
             exact={true}
             component={() => (
               <LoginPage
