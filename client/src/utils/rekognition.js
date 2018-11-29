@@ -32,12 +32,14 @@ class RekognitionContainer extends React.Component {
         let file = event.target.files[0];
         
         reader.onload = (event) => {
-            let arrayBuffer = event.target.result;
-            const array = new Uint8Array(arrayBuffer);
-            const binaryString = String.fromCharCode.apply(null, array);
+             let arrayBuffer = event.target.result;
+             console.log(event.target.result);
+            //  const array = new Uint8Array(arrayBuffer);
+            //  console.log(array);
+            // const binaryString = String.fromCharCode.apply(null, array);
 
-            console.log(array);
-            this.setState({ Bytes: array });
+            // console.log(binaryString);
+            this.setState({ Bytes: arrayBuffer });
             // this.setState({
             //     Bytes: 
             // })
@@ -70,7 +72,7 @@ class RekognitionContainer extends React.Component {
             //};
         };
 
-        reader.readAsArrayBuffer(file);
+        reader.readAsDataURL(file);
     };
 
     handlePictureToText = () => {
