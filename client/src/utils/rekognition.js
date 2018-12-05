@@ -27,57 +27,59 @@ class RekognitionContainer extends React.Component {
 
     handleChange(event) {
         //let ua;
-        
+
         const reader = new FileReader();
         let file = event.target.files[0];
-        
+
         reader.onload = (event) => {
             let arrayBuffer = event.target.result;
-            const array = new Uint8Array(arrayBuffer);
-            const binaryString = String.fromCharCode.apply(null, array);
+            console.log(event.target.result);
+            //  const array = new Uint8Array(arrayBuffer);
+            //  console.log(array);
+            // const binaryString = String.fromCharCode.apply(null, array);
 
-            console.log(array);
-            this.setState({ Bytes: array });
+            // console.log(binaryString);
+            this.setState({ Bytes: arrayBuffer });
             // this.setState({
             //     Bytes: 
             // })
             //return (event) => {
-                //     let img = document.createElement('img');
-                //     let image = null;
-                //     img.src = event.target.result;
-                //     console.log(event.target.result);
-                //     let jpg = true;
-                //     try {
-                //         image = atob(event.target.result.split("data:image/jpeg;base64,")[1]);
-                //     } catch (event) {
-                //         jpg = false;
-                //     }
-                //     if (jpg === false) {
-                //         try {
-                //             image = atob(event.target.result.split("data:image/png;base64,")[1]);
-                //         } catch (event) {
-                //             alert("Not an image file Rekognition can process");
-                //             return;
-                //         }
-                //     }
-                //     console.log(event);
-                //     const length = image.length;
-                //     const imageBytes = new ArrayBuffer(length);
-                //     ua = new Uint8Array(imageBytes);
-                //     for (let i = 0; i < length; i++) {
-                //         ua[i] = image.charCodeAt(i);
-                //     }
+            //     let img = document.createElement('img');
+            //     let image = null;
+            //     img.src = event.target.result;
+            //     console.log(event.target.result);
+            //     let jpg = true;
+            //     try {
+            //         image = atob(event.target.result.split("data:image/jpeg;base64,")[1]);
+            //     } catch (event) {
+            //         jpg = false;
+            //     }
+            //     if (jpg === false) {
+            //         try {
+            //             image = atob(event.target.result.split("data:image/png;base64,")[1]);
+            //         } catch (event) {
+            //             alert("Not an image file Rekognition can process");
+            //             return;
+            //         }
+            //     }
+            //     console.log(event);
+            //     const length = image.length;
+            //     const imageBytes = new ArrayBuffer(length);
+            //     ua = new Uint8Array(imageBytes);
+            //     for (let i = 0; i < length; i++) {
+            //         ua[i] = image.charCodeAt(i);
+            //     }
             //};
         };
-
-        reader.readAsArrayBuffer(file);
+        console.log(file);
+        reader.readAsDataURL(file);
     };
 
     handlePictureToText = () => {
         //const { Bytes } = this.state;
         console.log(this.state);
         const rekognition = new AWS.Rekognition({ apiVersion: '2016-06-27' })
-        rekognition.detectText({ Image: {Bytes: this.state} }, (error, data) => {
+        rekognition.detectText({ Image: { Bytes: this.state } }, (error, data) => {
             console.log(this.state);
             if (error) {
                 console.log(error.code, error.stack, error)

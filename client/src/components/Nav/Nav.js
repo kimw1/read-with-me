@@ -28,7 +28,7 @@ export default class Nav extends Component {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/home">
                   Home
                   </Link>
               </li>
@@ -66,7 +66,7 @@ export default class Nav extends Component {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login">
+                  <Link className="nav-link" to="/">
                     Login
                   </Link>
 
@@ -74,6 +74,12 @@ export default class Nav extends Component {
                 <li className="nav-item">
                   <Link className="nav-link" to="/register">
                     Register
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    Logout
                   </Link>
                 </li>
               </ul>

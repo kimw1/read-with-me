@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import classnames from "classnames";
-import "./LoginComponent.css";
 
 class LoginComponent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
       password: '',
@@ -34,11 +33,16 @@ class LoginComponent extends Component {
       })
     .catch(err => console.log(err));
     // .catch(err => this.setState({ errors: err.response.data }));
+
+    this.setState({
+      email: '',
+      password: '',
+      errors: {}})
   }
   
   render() {
     const { errors } = this.state;
-    //console.log(this.props.auth);
+    console.log(this.props.auth);
     return this.props.auth.isAuthenticated ? <Redirect to ="/library"/> : (
       <div className="LoginComponent">
         <div className="container">
@@ -79,7 +83,7 @@ class LoginComponent extends Component {
                     <div className="invalid-feedback">{errors.password}</div>
                   )}
                 </div>
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <button type="submit" className="btn btn-info btn-block mt-4">Submit</button>
               </form>
             </div>
           </div>
