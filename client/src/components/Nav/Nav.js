@@ -76,6 +76,12 @@ export default class Nav extends Component {
                     Register
                   </Link>
                 </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    Logout
+                  </Link>
+                </li>
               </ul>
               )}
             {/*END OF BS*/}

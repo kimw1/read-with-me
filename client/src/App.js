@@ -22,60 +22,76 @@ class App extends Component {
 
     this.state = {
       isAuthed: false
+      // isRegis: false
     };
 
     this.userBecameAuthed = this.userBecameAuthed.bind(this);
+    //   this.userRegistered = this.userRegistered.bind(this);
+     }
+
+    userBecameAuthed() {
+      this.setState({ isAuthed: true }, () => {
+        console.log(this.state);
+        // browserHistory.push('/library');
+        return <Redirect to="/library" />;
+      });
+    }
+
+    // userRegistered() {
+    //   this.setState({ isRegis: true }, () => {
+    //     console.log(this.state);
+    //     return <Redirect to="/" />;
+    //   })
+    // }
+
+
+    render() {
+      const { isAuthed: isAuthenticated } = this.state;
+      // const { isRegis: isRegistered } = this.state;
+      // console.log(this.props);
+      console.log(isAuthenticated);
+      return (
+        <Router>
+          <Switch>
+            <Route exact path="/home" component={Home} />
+            {/* <Route path="/login" exact={true} component={LoginPage} /> */}
+            {/* <Route path="/register" exact={true} component={RegisterPage} /> */}
+            {/* <Route path="/library" exact={true} component={Library} /> */}
+            {/* <Route path="/text" exact={true} component={Text} /> */}
+            <Route path="/library/:id" exact={true} component={Library} />
+            {/* <Route path="/picture" exact={true} component={Picture} /> */}
+            {/* <SecureRoute path="/library" exact={true} component={Library} /> */}
+
+            <Route
+              path="/"
+              exact={true}
+              component={() => (
+                <LoginPage
+                  userBecameAuthed={this.userBecameAuthed}
+                  auth={{ isAuthenticated }}
+                />
+              )}
+            />
+            <Route path="/register"
+              exact={true}
+              component={RegisterPage}
+            // userRegistered={this.userRegistered}
+            // reg={{ isRegistered }} />
+            // )} 
+            />
+
+            <PrivateRoute
+              path="/library"
+              auth={{ isAuthenticated }}
+              component={Library}
+            />
+
+            <Route path="/text" exact={true} component={Text} />
+            <Route path="/picture" exact={true} component={Picture} />
+          </Switch>
+        </Router>
+      );
+    }
   }
-
-  userBecameAuthed() {
-    this.setState({ isAuthed: true }, () => {
-      console.log(this.state);
-      // browserHistory.push('/library');
-      return <Redirect to="/library" />;
-    });
-  }
-
-
-  render() {
-    const { isAuthed: isAuthenticated } = this.state;
-    // console.log(this.props);
-    console.log(isAuthenticated);
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/home" component={Home} />
-          {/* <Route path="/login" exact={true} component={LoginPage} /> */}
-          {/* <Route path="/register" exact={true} component={RegisterPage} /> */}
-          {/* <Route path="/library" exact={true} component={Library} /> */}
-          {/* <Route path="/text" exact={true} component={Text} /> */}
-          <Route path="/library/:id" exact={true} component={Library} />
-          {/* <Route path="/picture" exact={true} component={Picture} /> */}
-          {/* <SecureRoute path="/library" exact={true} component={Library} /> */}
-
-          <Route
-            path="/"
-            exact={true}
-            component={() => (
-              <LoginPage
-                userBecameAuthed={this.userBecameAuthed}
-                auth={{ isAuthenticated }}
-              />
-            )}
-          />
-          <Route path="/register" exact={true} component={RegisterPage} />
-
-          <PrivateRoute
-            path="/library"
-            auth={{ isAuthenticated }}
-            component={Library}
-          />
-
-          <Route path="/text" exact={true} component={Text} />
-          <Route path="/picture" exact={true} component={Picture} />
-        </Switch>
-      </Router>
-    );
-  }
-}
 
 export default App;

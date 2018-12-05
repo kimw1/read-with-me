@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import classnames from 'classnames';
 
@@ -33,14 +34,23 @@ class Register extends Component {
 
     axios
       .post('/api/users/register', newUser)
-      .then(res => console.log(res.data))
-      .catch(err => this.setState({ errors: err.response.data }));
+      .then(res => { console.log(res.data);
+      })
+       .catch(err => this.setState({ errors: err.response.data }));
+
+    this.setState({
+      name: '',
+      email: '',
+      password: '',
+      password2: '',
+      errors: {}})
   }
 
   render() {
     const { errors } = this.state;
-
-    return (
+if(this.props.newUser)
+return<Redirect to="/" />
+    return(
       <div className="register">
         <div className="container">
           <div className="row">
