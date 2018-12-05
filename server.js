@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const passport = require('passport');
+require('dotenv').config('config/keys');
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));

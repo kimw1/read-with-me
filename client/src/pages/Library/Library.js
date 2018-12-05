@@ -6,7 +6,6 @@ import API from "../../utils/API";
 import DeleteButton from "../../components/DeleteButton";
 import { Link } from "react-router-dom";
 import { LibraryList, LibraryListItem } from "../../components/List"
-import Col from "../../components/Grid";
 
 class Library extends Component {
     state = {

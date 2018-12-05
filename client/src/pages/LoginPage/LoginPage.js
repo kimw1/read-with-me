@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LoginComponent from "../../components/LoginComponent";
-import Nav from "../../components/Nav"
+import AuthNav from "../../components/Nav/authNav"
 import Footer from "../../components/Footer"
 
 class LoginPage extends Component {
@@ -12,7 +12,7 @@ class LoginPage extends Component {
          
                 
 
-                <Nav />        
+                <AuthNav />    
                 <LoginComponent {...this.props} />
                 <Footer />
 
